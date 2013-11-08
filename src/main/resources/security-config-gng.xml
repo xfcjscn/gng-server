@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xsi:schemaLocation="
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
+	http://www.springframework.org/schema/security 
+	http://www.springframework.org/schema/security/spring-security-3.2.xsd
+	http://www.springframework.org/schema/jee
+	http://www.springframework.org/schema/jee/spring-jee-3.2.xsd
+	">
+
+
+
+	<security:http auto-config="false" entry-point-ref="401ResponseCodeHandler" use-expressions="true" request-matcher="regex"
+	               pattern="/odata/odata.svc/.*">
+		<security:intercept-url pattern=".*" access="permitAll"/>
+		<security:form-login authentication-failure-handler-ref="errorResponseCodeHandler"
+		                     authentication-success-handler-ref="successResponseCodeHandler"/>
+		<security:remember-me/>
+		<security:custom-filter ref="customizeRequestFilter" position="FIRST"/>
+		<security:headers>
+			<security:header name="Access-Control-Allow-Origin" value="${client.url}"/>
+			<security:header name="Access-Control-Allow-Headers" value="accept,content-type,dataserviceversion,maxdataserviceversion"/>
+			<security:header name="Access-Control-Allow-Methods" value="POST,GET,DELETE,PUT,HEAD,OPTIONS,PATCH"/>
+			<security:header name="Access-Control-Allow-Credentials" value="true"/>
+		</security:headers>
+		<security:logout delete-cookies="JSESSIONID" success-handler-ref="successResponseCodeHandler"/>
+		<security:session-management>
+			<security:concurrency-control max-sessions="1"/>
+		</security:session-management>
+	</security:http>
+
+</beans>
