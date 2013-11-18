@@ -11,11 +11,13 @@
 	<beans profile="dev">
 		<context:property-placeholder location="classpath:env.dev.properties" />
 		<import resource="classpath:security-config.xml" />
+		<import resource="classpath:data-config.xml" />
 		<import resource="classpath:security-config-gng.xml" />
 	</beans>
 	<beans profile="production">
 		<context:property-placeholder location="classpath:env.production.properties" />
 		<import resource="classpath:security-config.xml" />
+		<import resource="classpath:data-config.xml" />
 		<import resource="classpath:security-config-gng.xml" />
 	</beans>
 
