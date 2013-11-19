@@ -10,6 +10,10 @@
 	<artifactId>gng-server</artifactId>
 	<packaging>war</packaging>
 
+	<properties>
+		<org.eclipse.persistence.version>2.5.1</org.eclipse.persistence.version>
+	</properties>
+
 	<dependencies>
 		<!-- Infra Comp -->
 		<dependency>
