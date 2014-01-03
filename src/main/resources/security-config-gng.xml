@@ -14,7 +14,7 @@
 
 
 	<security:http auto-config="false" entry-point-ref="401ResponseCodeHandler" use-expressions="true" request-matcher="regex"
-	               pattern="/odata/odata.svc/.*">
+	               pattern="/data/odata.svc/.*">
 		<security:intercept-url pattern=".*" access="permitAll"/>
 		<security:form-login authentication-failure-handler-ref="errorResponseCodeHandler"
 		                     authentication-success-handler-ref="successResponseCodeHandler"/>
