@@ -8,6 +8,8 @@
 
 	<context:annotation-config />
 
+    <bean class="net.gplatform.server.infra.spring.SpringContextsUtil" lazy-init="false"/>
+
 	<beans profile="dev">
 		<context:property-placeholder location="classpath:env.dev.properties" />
 		<import resource="classpath:security-config.xml" />
