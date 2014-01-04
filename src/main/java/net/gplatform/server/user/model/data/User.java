@@ -12,8 +12,6 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import net.gplatform.server.post.model.data.Item;
-import net.gplatform.server.post.model.data.Post;
-import net.gplatform.server.post.model.data.PostThread;
 
 @Entity
 // User table is already used in Oracle, so change to Customer
@@ -28,10 +26,7 @@ public class User implements Serializable {
 	private long id;
 	private String name;
 	private String email;
-	@OneToMany
-	private List<Post> ownedPosts;
-	@OneToMany
-	private List<PostThread> ownedPostThreads;
+
 	@OneToMany
 	private List<Item> ownedItems;
 	@OneToOne
@@ -59,22 +54,6 @@ public class User implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public List<Post> getOwnedPosts() {
-		return ownedPosts;
-	}
-
-	public void setOwnedPosts(List<Post> ownedPosts) {
-		this.ownedPosts = ownedPosts;
-	}
-
-	public List<PostThread> getOwnedPostThreads() {
-		return ownedPostThreads;
-	}
-
-	public void setOwnedPostThreads(List<PostThread> ownedPostThreads) {
-		this.ownedPostThreads = ownedPostThreads;
 	}
 
 	public List<Item> getOwnedItems() {
