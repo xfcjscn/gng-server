@@ -19,8 +19,6 @@ public class Image implements Serializable {
 	private long id;
 	private String name;
 	private String path;
-	@ManyToOne
-	private Item item;
 
 	public long getId() {
 		return id;
@@ -44,14 +42,6 @@ public class Image implements Serializable {
 
 	public void setPath(String path) {
 		this.path = path;
-	}
-
-	public Item getItem() {
-		return item;
-	}
-
-	public void setItem(Item item) {
-		this.item = item;
 	}
 
 }

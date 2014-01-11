@@ -1,15 +1,11 @@
 package net.gplatform.server.post.model.data;
 
+import net.gplatform.server.user.model.data.User;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import java.util.List;
 
 @Entity
 public class Item implements Serializable {
@@ -26,18 +22,16 @@ public class Item implements Serializable {
 	@Column(name = "description")
 	private String desc;
 
-	//	@OneToMany
-//	private List<Image> images;
-	private String images;
+	@OneToMany(cascade = CascadeType.PERSIST)
+	private List<Image> images;
 
 	@Temporal(TemporalType.TIME)
 	private Date createDate;
 	@Temporal(TemporalType.TIME)
 	private Date lastModified;
 
-	//	@ManyToOne
-//	private User owner;
-	private String owner;
+	@ManyToOne
+	private User owner;
 
 	private String status;
 
@@ -74,26 +68,19 @@ public class Item implements Serializable {
 		this.desc = desc;
 	}
 
-//	public List<Image> getImages() {
-//		return images;
-//	}
-//
-//	public void setImages(List<Image> images) {
-//		this.images = images;
-//	}
+	public List<Image> getImages() {
+		return images;
+	}
+
+	public void setImages(List<Image> images) {
+		this.images = images;
+	}
 
 
 	public Date getCreateDate() {
 		return createDate;
 	}
 
-	public String getImages() {
-		return images;
-	}
-
-	public void setImages(String images) {
-		this.images = images;
-	}
 
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
@@ -107,13 +94,11 @@ public class Item implements Serializable {
 		this.lastModified = lastModified;
 	}
 
-	public String getOwner() {
+	public User getOwner() {
 		return owner;
 	}
 
-	public void setOwner(String owner) {
+	public void setOwner(User owner) {
 		this.owner = owner;
 	}
-
-
 }

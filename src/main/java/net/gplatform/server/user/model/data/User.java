@@ -1,17 +1,10 @@
 package net.gplatform.server.user.model.data;
 
+import net.gplatform.server.post.model.data.Item;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
-import net.gplatform.server.post.model.data.Item;
 
 @Entity
 // User table is already used in Oracle, so change to Customer
@@ -29,8 +22,7 @@ public class User implements Serializable {
 
 	@OneToMany
 	private List<Item> ownedItems;
-	@OneToOne
-	private UserProfile userProfile;
+
 
 	public long getId() {
 		return id;
@@ -64,12 +56,5 @@ public class User implements Serializable {
 		this.ownedItems = ownedItems;
 	}
 
-	public UserProfile getUserProfile() {
-		return userProfile;
-	}
-
-	public void setUserProfile(UserProfile userProfile) {
-		this.userProfile = userProfile;
-	}
 
 }
