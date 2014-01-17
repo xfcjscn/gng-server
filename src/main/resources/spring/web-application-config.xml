@@ -11,16 +11,16 @@
     <bean class="net.gplatform.server.infra.spring.SpringContextsUtil" lazy-init="false"/>
 
 	<beans profile="dev">
-		<context:property-placeholder location="classpath:env.dev.properties" />
-		<import resource="classpath:security-config.xml" />
-		<import resource="classpath:data-config.xml" />
-		<import resource="classpath:security-config-gng.xml" />
+		<context:property-placeholder location="classpath:spring/env.dev.properties" />
+		<import resource="classpath:spring/security-config.xml" />
+		<import resource="classpath:spring/data-config.xml" />
+		<import resource="classpath:spring/security-config-gng.xml" />
 	</beans>
 	<beans profile="production">
-		<context:property-placeholder location="classpath:env.production.properties" />
-		<import resource="classpath:security-config.xml" />
-		<import resource="classpath:data-config.xml" />
-		<import resource="classpath:security-config-gng.xml" />
+		<context:property-placeholder location="classpath:spring/env.production.properties" />
+		<import resource="classpath:spring/security-config.xml" />
+		<import resource="classpath:spring/data-config.xml" />
+		<import resource="classpath:spring/security-config-gng.xml" />
 	</beans>
 
 </beans>
