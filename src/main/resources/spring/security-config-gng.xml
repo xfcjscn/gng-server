@@ -20,12 +20,6 @@
 		                     authentication-success-handler-ref="successResponseCodeHandler"/>
 		<security:remember-me/>
 		<security:custom-filter ref="customizeRequestFilter" position="FIRST"/>
-		<security:headers>
-			<security:header name="Access-Control-Allow-Origin" value="${client.url}"/>
-			<security:header name="Access-Control-Allow-Headers" value="accept,content-type,dataserviceversion,maxdataserviceversion"/>
-			<security:header name="Access-Control-Allow-Methods" value="POST,GET,DELETE,PUT,HEAD,OPTIONS,PATCH"/>
-			<security:header name="Access-Control-Allow-Credentials" value="true"/>
-		</security:headers>
 		<security:logout delete-cookies="JSESSIONID" success-handler-ref="successResponseCodeHandler"/>
 		<security:session-management>
 			<security:concurrency-control max-sessions="1"/>
