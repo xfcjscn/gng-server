@@ -29,11 +29,14 @@
             <version>1.0</version>
             <type>pom</type>
         </dependency>
+
+        <!-- set scope to provided to exclude it in pkg, since there will be duplicated persistence.xml & logback.xml -->
         <dependency>
             <groupId>net.gplatform</groupId>
             <artifactId>infra-server-lib</artifactId>
             <version>1.0</version>
             <classifier>classes</classifier>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>

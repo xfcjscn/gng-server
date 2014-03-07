@@ -4,19 +4,28 @@
     <persistence-unit name="BizData" transaction-type="RESOURCE_LOCAL">
         <non-jta-data-source>java:/comp/env/jdbc/GPlatformDataSource</non-jta-data-source>
 
+        <!-- Entity classes auto find only work during compilation. Explicit declare, so that not missed during sub-project compile -->
+        <class>net.gplatform.server.infra.tools.fileupload.File</class>
+        <class>net.gplatform.server.infra.ss.CredentialUser</class>
+        <class>net.gplatform.server.infra.ss.CredentialAuthority</class>
+
         <!--
         <class>net.gplatform.server.post.model.data.ActionHistory</class>
--->
+        <class>net.gplatform.server.post.model.data.Image</class>
+        <class>net.gplatform.server.post.model.data.Item</class>
+        <class>net.gplatform.server.user.model.data.User</class>
+        -->
+
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
 
         <properties>
-            <!-- WARNING, this will change the DB when using drop-and-create/create -->
-            <property name="javax.persistence.schema-generation.database.action" value="none" />
+            <!-- drop-and-create,none -->
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
             <property name="javax.persistence.schema-generation.create-source" value="metadata" />
             <property name="javax.persistence.schema-generation.drop-source" value="metadata" />
 
             <property name="eclipselink.logging.logger" value="JavaLogger"/>
-        </properties>
 
+        </properties>
     </persistence-unit>
 </persistence> 
