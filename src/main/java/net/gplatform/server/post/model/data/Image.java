@@ -2,11 +2,7 @@ package net.gplatform.server.post.model.data;
 
 import java.io.Serializable;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Image implements Serializable {
@@ -19,6 +15,8 @@ public class Image implements Serializable {
 	private long id;
 	private String name;
 	private String path;
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	private Item item;
 
 	public long getId() {
 		return id;
@@ -44,4 +42,11 @@ public class Image implements Serializable {
 		this.path = path;
 	}
 
+	public Item getItem() {
+		return item;
+	}
+
+	public void setItem(Item item) {
+		this.item = item;
+	}
 }
