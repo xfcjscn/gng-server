@@ -22,8 +22,8 @@ public class Item implements Serializable {
 	@Column(name = "description")
 	private String desc;
 
-//	@OneToMany(cascade = CascadeType.PERSIST)
-//	private List<Image> images;
+	@OneToMany(cascade = CascadeType.PERSIST)
+	private List<Image> images;
 
 	@Temporal(TemporalType.TIME)
 	private Date createDate;
@@ -68,13 +68,13 @@ public class Item implements Serializable {
 		this.desc = desc;
 	}
 
-//	public List<Image> getImages() {
-//		return images;
-//	}
-//
-//	public void setImages(List<Image> images) {
-//		this.images = images;
-//	}
+	public List<Image> getImages() {
+		return images;
+	}
+
+	public void setImages(List<Image> images) {
+		this.images = images;
+	}
 
 
 	public Date getCreateDate() {
