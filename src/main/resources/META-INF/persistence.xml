@@ -6,8 +6,8 @@
 
         <!-- Entity classes auto find only work during compilation. Explicit declare, so that not missed during sub-project compile -->
         <class>net.gplatform.server.infra.tools.fileupload.File</class>
-        <class>net.gplatform.server.infra.ss.CredentialUser</class>
-        <class>net.gplatform.server.infra.ss.CredentialAuthority</class>
+        <class>net.gplatform.server.infra.ss.entity.CredentialUser</class>
+        <class>net.gplatform.server.infra.ss.entity.CredentialAuthority</class>
 
         <!--
         <class>net.gplatform.server.post.model.data.ActionHistory</class>
