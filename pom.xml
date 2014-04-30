@@ -3,8 +3,8 @@
 
 	<parent>
 		<groupId>net.gplatform</groupId>
-		<artifactId>infra-server-parent</artifactId>
-		<version>1.0.0</version>
+		<artifactId>sudoor-server-parent</artifactId>
+		<version>1.0.2-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>gng-server</artifactId>
@@ -13,28 +13,28 @@
 
 	<properties>
 		<org.eclipse.persistence.version>2.5.1</org.eclipse.persistence.version>
-		<infra.lib.version>1.0.0</infra.lib.version>
+		<sudoor.lib.version>1.0.2-SNAPSHOT</sudoor.lib.version>
 	</properties>
 
 	<dependencies>
-        <!-- Infra Comp -->
+        <!-- sudoor Comp -->
 		<dependency>
 			<groupId>net.gplatform</groupId>
-			<artifactId>infra-server-lib</artifactId>
-			<version>${infra.lib.version}</version>
+			<artifactId>sudoor-server-lib</artifactId>
+			<version>${sudoor.lib.version}</version>
 			<type>war</type>
 		</dependency>
 		<dependency>
 			<groupId>net.gplatform</groupId>
-			<artifactId>infra-server-lib</artifactId>
-			<version>${infra.lib.version}</version>
+			<artifactId>sudoor-server-lib</artifactId>
+			<version>${sudoor.lib.version}</version>
 			<type>pom</type>
 		</dependency>
         <!-- set scope to provided to exclude it in pkg, since there will be duplicated persistence.xml & logback.xml -->
 		<dependency>
 			<groupId>net.gplatform</groupId>
-			<artifactId>infra-server-lib</artifactId>
-			<version>${infra.lib.version}</version>
+			<artifactId>sudoor-server-lib</artifactId>
+			<version>${sudoor.lib.version}</version>
 			<classifier>classes</classifier>
 			<scope>provided</scope>
 		</dependency>
